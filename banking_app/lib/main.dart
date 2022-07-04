@@ -9,7 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final String title = "Wahaj's Banking App";
+  final String title = "Wahaj's App";
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: title,
-      themeMode: ThemeMode.dark,
       home: Home(),
     );
   }

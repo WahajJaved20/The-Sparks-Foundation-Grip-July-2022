@@ -57,8 +57,10 @@ class _HomeState extends State<Home> {
                 child: Text("View Transactions"))
           ],
         ),
-        body: Center(
-            child: isLoading ? CircularProgressIndicator() : buildList()),
+        body: Container(
+          child: Center(
+              child: isLoading ? CircularProgressIndicator() : buildList()),
+        ),
       ),
     );
   }

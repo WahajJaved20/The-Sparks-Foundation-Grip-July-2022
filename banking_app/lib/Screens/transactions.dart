@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, must_be_immutable, use_key_in_widget_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable, use_key_in_widget_constructors, unnecessary_null_comparison
 
 import 'package:banking_app/Database/Database.dart';
 import 'package:banking_app/model/transaction.dart';
@@ -47,7 +47,23 @@ class _TransactionsState extends State<Transactions> {
           ],
         ),
         body: Center(
-            child: isLoading ? CircularProgressIndicator() : buildList()),
+            child: isLoading
+                ? CircularProgressIndicator()
+                : CustomerDatabase.instance != null
+                    ? buildList()
+                    : Card(
+                        color: Color.fromARGB(96, 10, 21, 175),
+                        child: Container(
+                          width: double.infinity,
+                          padding: EdgeInsets.all(
+                            MediaQuery.of(context).size.height * 0.05,
+                          ),
+                          child: Text(
+                            "No Transactions yet",
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          ),
+                        ),
+                      )),
       ),
     );
   }
